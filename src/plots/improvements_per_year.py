@@ -105,8 +105,8 @@ def plot_improvements_per_year(*, bin_by: str = "year",
         ax.set_title(f"Algorithmic improvement events per {bin_by}")
     fig.tight_layout()
 
-    save_name = save_name or f"improvements_{suffix}"
+    save_name = save_name or f"improvements_{suffix}{s['name_suffix']}"
     out = save_plot(fig, save_name, save_dir=s["save_subdir"])
-    print(f"  - {out.relative_to(out.parents[1])}  "
+    print(f"  - {out.relative_to(out.parent.parent)}  "
           f"({int(counts.sum())} improvement events total)")
     return out

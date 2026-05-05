@@ -133,12 +133,12 @@ def plot_family_improvements_per_year(*, bin_by: str = "year",
     fig.tight_layout()
 
     save_root = "family_improvements_fraction" if as_fraction else "family_improvements"
-    save_name = save_name or f"{save_root}_{suffix}"
+    save_name = save_name or f"{save_root}_{suffix}{s['name_suffix']}"
     out = save_plot(fig, save_name, save_dir=s["save_subdir"])
     if as_fraction:
-        print(f"  - {out.relative_to(out.parents[1])}  "
+        print(f"  - {out.relative_to(out.parent.parent)}  "
               f"(peak share = {counts.max():.1f}%)")
     else:
-        print(f"  - {out.relative_to(out.parents[1])}  "
+        print(f"  - {out.relative_to(out.parent.parent)}  "
               f"({int(counts.sum())} family-improvement-{bin_by}s total)")
     return out

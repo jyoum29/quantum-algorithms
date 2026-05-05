@@ -113,8 +113,8 @@ def plot_problems_per_year(*, by: str = "problem", bin_by: str = "year",
                      f"{bin_by}")
     fig.tight_layout()
 
-    save_name = save_name or f"{default_name_root}_{suffix}"
+    save_name = save_name or f"{default_name_root}_{suffix}{s['name_suffix']}"
     out = save_plot(fig, save_name, save_dir=s["save_subdir"])
-    print(f"  - {out.relative_to(out.parents[1])}  "
+    print(f"  - {out.relative_to(out.parent.parent)}  "
           f"({int(counts.sum())} {title_unit} total)")
     return out

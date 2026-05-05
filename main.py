@@ -4,16 +4,17 @@ Usage:
     python main.py
 
 Comment / uncomment plot calls below to choose which figures to generate.
-Outputs land under:
+All PNGs land directly in Plots/. Two visual styles are produced:
 
-    Plots/parallel/   - dtontici/parallel-algorithms style: compact figure,
-                        pastel single-series fill, horizontal multi-line
-                        ylabel, no cumulative overlay. Has a year and a
-                        decade variant of every plot.
-    Plots/classic/    - the original look from the first iteration: larger
-                        10 x 5 figure, distinct primary colours, faint grid,
-                        cumulative line on a twinned y-axis, vertical
-                        ylabel. Year-binned only.
+    parallel-algorithms style (default) - dtontici/parallel-algorithms
+        look: compact figure, pastel single-series fill, horizontal
+        multi-line ylabel, no cumulative overlay. Year + decade variants.
+        File names: <plot>_per_year.png, <plot>_per_decade.png
+
+    classic style - the original look from the first iteration of this
+        repo: larger 10 x 5 figure, distinct primary colours, faint grid,
+        cumulative line on a twinned y-axis, vertical ylabel. Year-binned
+        only. File names: <plot>_per_year_classic.png
 """
 from __future__ import annotations
 
@@ -37,7 +38,7 @@ def main() -> None:
     print(f"\n[2/2] Generating plots into {PLOTS_DIR} ...")
 
     # ---------- Parallel-algorithms style (year + decade variants) -------
-    print("\n  >>> parallel-algorithms style  (Plots/parallel/)")
+    print("\n  >>> parallel-algorithms style")
     plot_problems_per_year(by="problem", bin_by="year",   style="parallel")
     plot_problems_per_year(by="problem", bin_by="decade", style="parallel")
     plot_problems_per_year(by="family",  bin_by="year",   style="parallel")
@@ -50,7 +51,7 @@ def main() -> None:
     plot_family_improvements_per_year(bin_by="decade", style="parallel", as_fraction=True)
 
     # ---------- Classic style (original look, year-binned) ---------------
-    print("\n  >>> classic style  (Plots/classic/)")
+    print("\n  >>> classic style  (filenames carry a _classic suffix)")
     plot_problems_per_year(by="problem", style="classic")
     plot_problems_per_year(by="family",  style="classic")
     plot_improvements_per_year(style="classic")

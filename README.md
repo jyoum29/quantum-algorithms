@@ -67,23 +67,25 @@ every algorithm with:
 
 ## Plots
 
-`python main.py` writes 15 PNGs into two subfolders of `Plots/`, one per
-style:
+`python main.py` writes 15 PNGs directly under `Plots/`. The classic-style
+files are tagged with a `_classic` suffix so the two styles can coexist in
+the same folder:
 
 ```text
 Plots/
-|-- parallel/        # dtontici/parallel-algorithms-style renderings
-|   |-- problems_introduced_per_year.png            problems_introduced_per_decade.png
-|   |-- families_introduced_per_year.png            families_introduced_per_decade.png
-|   |-- improvements_per_year.png                   improvements_per_decade.png
-|   |-- family_improvements_per_year.png            family_improvements_per_decade.png
-|   `-- family_improvements_fraction_per_year.png   family_improvements_fraction_per_decade.png
-`-- classic/         # the original look from the first iteration
-    |-- problems_introduced_per_year.png
-    |-- families_introduced_per_year.png
-    |-- improvements_per_year.png
-    |-- family_improvements_per_year.png
-    `-- family_improvements_fraction_per_year.png
+|-- # parallel-algorithms style (default; year + decade variants)
+|-- problems_introduced_per_year.png            problems_introduced_per_decade.png
+|-- families_introduced_per_year.png            families_introduced_per_decade.png
+|-- improvements_per_year.png                   improvements_per_decade.png
+|-- family_improvements_per_year.png            family_improvements_per_decade.png
+|-- family_improvements_fraction_per_year.png   family_improvements_fraction_per_decade.png
+|
+|-- # classic style (original look; year-binned only; _classic suffix)
+|-- problems_introduced_per_year_classic.png
+|-- families_introduced_per_year_classic.png
+|-- improvements_per_year_classic.png
+|-- family_improvements_per_year_classic.png
+`-- family_improvements_fraction_per_year_classic.png
 ```
 
 ### Style differences
@@ -124,9 +126,9 @@ visual rendering differs.
   `mark_improvements` (e.g. swap `time_class` for `space_class`).
 - **Style**: every plot accepts `style="parallel"` (default) or
   `style="classic"`. The style controls figure size, DPI, palette,
-  cumulative-line behaviour, y-label orientation, and the output subfolder
-  (`Plots/parallel/` vs `Plots/classic/`). Add a new style by extending
-  the `STYLES` dict in `src/header.py`.
+  cumulative-line behaviour, y-label orientation, and the output filename
+  suffix (no suffix for `parallel`, `_classic` for `classic`). Add a new
+  style by extending the `STYLES` dict in `src/header.py`.
 - **Year vs decade binning**: every plot accepts `bin_by="year"` (default)
   or `bin_by="decade"` (matches parallel-algorithms' look exactly).
 - **Cumulative line overlay**: every plot accepts `show_cumulative=True/False`
