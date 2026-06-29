@@ -28,7 +28,7 @@ quantum-algorithms/
 |       |-- problems_per_year.py
 |       |-- improvements_per_year.py
 |       `-- family_improvements_per_year.py
-`-- Plots/                             # generated PNGs land here
+`-- Plots/                             # generated PNGs (parallel/ + classic/)
 ```
 
 ## Running
@@ -67,25 +67,25 @@ every algorithm with:
 
 ## Plots
 
-`python main.py` writes 15 PNGs directly under `Plots/`. The classic-style
-files are tagged with a `_classic` suffix so the two styles can coexist in
-the same folder:
+`python main.py` writes 15 PNGs under `Plots/parallel/` (10 files: year +
+decade variants) and `Plots/classic/` (5 files: year-binned only). Classic
+filenames still carry a `_classic` suffix:
 
 ```text
 Plots/
-|-- # parallel-algorithms style (default; year + decade variants)
-|-- problems_introduced_per_year.png            problems_introduced_per_decade.png
-|-- families_introduced_per_year.png            families_introduced_per_decade.png
-|-- improvements_per_year.png                   improvements_per_decade.png
-|-- family_improvements_per_year.png            family_improvements_per_decade.png
-|-- family_improvements_fraction_per_year.png   family_improvements_fraction_per_decade.png
+|-- parallel/   # parallel-algorithms style (default; year + decade variants)
+|   |-- problems_introduced_per_year.png            problems_introduced_per_decade.png
+|   |-- families_introduced_per_year.png            families_introduced_per_decade.png
+|   |-- improvements_per_year.png                   improvements_per_decade.png
+|   |-- family_improvements_per_year.png            family_improvements_per_decade.png
+|   `-- family_improvements_fraction_per_year.png   family_improvements_fraction_per_decade.png
 |
-|-- # classic style (original look; year-binned only; _classic suffix)
-|-- problems_introduced_per_year_classic.png
-|-- families_introduced_per_year_classic.png
-|-- improvements_per_year_classic.png
-|-- family_improvements_per_year_classic.png
-`-- family_improvements_fraction_per_year_classic.png
+`-- classic/    # original look; year-binned only; _classic suffix
+    |-- problems_introduced_per_year_classic.png
+    |-- families_introduced_per_year_classic.png
+    |-- improvements_per_year_classic.png
+    |-- family_improvements_per_year_classic.png
+    `-- family_improvements_fraction_per_year_classic.png
 ```
 
 ### Style differences

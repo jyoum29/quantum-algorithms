@@ -66,9 +66,8 @@ DECADES = [
 # ---------------------------------------------------------------------------
 EDGE_COLOR = "white"
 
-# All plots land directly in Plots/. Styles are distinguished via a filename
-# suffix (the "parallel" style is the default and uses no suffix; "classic"
-# adds "_classic").
+# Each style writes into its own subfolder under Plots/. Classic filenames
+# still carry a "_classic" suffix so the two sets stay distinguishable by name.
 SAVE_LOC = PLOTS_DIR
 
 # Pastel palette from parallel-algorithms' SEQ_PAR_COLORS for the parallel style
@@ -80,7 +79,7 @@ STYLES = {
         "figsize": (6.55, 3.5),
         "dpi": 200,
         "grid_alpha": 0.0,
-        "save_subdir": SAVE_LOC,
+        "save_subdir": PLOTS_DIR / "parallel",
         "name_suffix": "",
         "show_cumulative": False,
         "horizontal_ylabel": True,
@@ -92,7 +91,7 @@ STYLES = {
         "figsize": (10, 5),
         "dpi": 150,
         "grid_alpha": 0.25,
-        "save_subdir": SAVE_LOC,
+        "save_subdir": PLOTS_DIR / "classic",
         "name_suffix": "_classic",
         "show_cumulative": True,
         "horizontal_ylabel": False,

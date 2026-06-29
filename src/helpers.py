@@ -188,7 +188,7 @@ def style_decade_axis(ax, *, decades: list[dict] | None = None,
 
 
 def save_plot(fig, name: str, *, save_dir: Path | None = None) -> Path:
-    """Save ``fig`` as ``name.png`` under ``Plots/`` and close it."""
+    """Save ``fig`` as ``name.png`` under the style's ``Plots/`` subfolder and close it."""
     save_dir = save_dir or SAVE_LOC
     save_dir.mkdir(parents=True, exist_ok=True)
     out = save_dir / f"{name}.png"

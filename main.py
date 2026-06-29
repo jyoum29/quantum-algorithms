@@ -4,7 +4,7 @@ Usage:
     python main.py
 
 Comment / uncomment plot calls below to choose which figures to generate.
-All PNGs land directly in Plots/. Two visual styles are produced:
+All PNGs land under Plots/parallel/ or Plots/classic/. Two visual styles are produced:
 
     parallel-algorithms style (default) - dtontici/parallel-algorithms
         look: compact figure, pastel single-series fill, horizontal
